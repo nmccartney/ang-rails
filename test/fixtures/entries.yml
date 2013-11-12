@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  anme: MyString
+  winner: false
+
+two:
+  anme: MyString
+  winner: false
