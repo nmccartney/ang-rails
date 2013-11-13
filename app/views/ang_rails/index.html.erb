@@ -3,14 +3,15 @@
 <div ng-controller='AngRailsCtrl'>
 
 	<form ng-submit="addEntry()">
-    <input type="text" ng-model="newEntry.anme">
+    <input type="text" ng-model="newEntry.name">
     <input type="submit" value="Add">
   </form>
 
   <ul>
     <li ng-repeat="entry in entries">
-      {{entry.anme}}
+      {{entry.name}}
       <span ng-show="entry.winner" ng-class="{highlight: entry == lastWinner}" class="winner">WINNER</span>
+      <button  ng-click="deleteEntry(entry)">delete</button>
     </li>
   </ul>
   

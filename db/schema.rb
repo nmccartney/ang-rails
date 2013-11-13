@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20131112172920) do
 
   create_table "entries", :force => true do |t|
-    t.string   "anme"
+    t.string   "name"
     t.boolean  "winner"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -1,3 +1,3 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :anme, :winner
+  attr_accessible :name, :winner
 end
