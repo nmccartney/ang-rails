@@ -3,15 +3,28 @@
 
 var app;
 
-app = angular.module("angRails", ["ngResource"]);
+app = angular.module("angRails", ['ngRoute',"ngResource"]);
 
 app.config([
-  '$httpProvider', function($httpProvider) {
-    return $httpProvider.defaults.headers['common']['Accept'] = 'application/json';
-  }
-]);
+    '$httpProvider', function($httpProvider) {
+      return $httpProvider.defaults.headers['common']['Accept'] = 'application/json';
+    }
+  ],[
+    '$routeProvider', function($routeProvider) {
+      $routeProvider
+        .when('/',
+        {
+          controller: 'AppCtrl'
+        }) 
+    }
+  ]
+);
 
 
+
+app.controller('AppCtrl',function($scope){
+  console.log('+ ' + $scope);
+})
 
 app.factory("Entry", function($resource) {
   return $resource("/entries/:id", {
@@ -41,11 +54,11 @@ this.AngRailsCtrl = function($scope, Entry) {
   };
 
   $scope.deleteEntry = function(e){
-    
-    var index = $scope.entries.indexOf(e)
-    console.log(index);
+    // get index of current list
+    var index = $scope.entries.indexOf(e);
+    // remove from dom
     $scope.entries.splice(index,1);
-
+    //remove from DB
     e.$remove();
   }
 
