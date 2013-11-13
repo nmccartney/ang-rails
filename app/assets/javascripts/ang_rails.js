@@ -5,22 +5,29 @@ var app;
 
 app = angular.module("angRails", ['ngRoute',"ngResource"]);
 
-app.config([
-    '$httpProvider', function($httpProvider) {
-      return $httpProvider.defaults.headers['common']['Accept'] = 'application/json';
-    }
-  ],[
-    '$routeProvider', function($routeProvider) {
-      $routeProvider
-        .when('/',
-        {
-          controller: 'AppCtrl'
-        }) 
-    }
-  ]
+app.config( function($routeProvider,$httpProvider) {
+
+  $httpProvider.defaults.headers['common']['Accept'] = 'application/json';
+
+  $routeProvider
+    .when('/',
+    {
+      template:'hello',
+      controller: 'AppCtrl'
+    })
+    .when('/sub',{
+      redirectTo: function (routeParams, path, search){
+        console.log(routeParams);
+        console.log(path);
+        console.log(search);
+        return '/'
+      }
+    })
+    .otherwise({
+      redirectTo:'/'
+    })
+  }
 );
-
-
 
 app.controller('AppCtrl',function($scope){
   console.log('+ ' + $scope);
