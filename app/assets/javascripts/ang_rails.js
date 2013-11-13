@@ -6,9 +6,9 @@ var app;
 app = angular.module("angRails", ['ngRoute',"ngResource"]);
 
 app.config( function($routeProvider,$httpProvider) {
-
+  // allow json
   $httpProvider.defaults.headers['common']['Accept'] = 'application/json';
-
+  //config routs
   $routeProvider
     .when('/',
     {
