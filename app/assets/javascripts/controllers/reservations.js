@@ -1,3 +1,14 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+function ReservationsCtrl ($scope, Reservations) {
+	$scope.setActive('reservations');
+
+	$scope.reservations = Reservations.query();
+
+	$scope.reserveFlight = function  () {
+		Reservations.save($scope.reserve, function (data) {
+			$scope.reserve.origin = '';
+			$scope.reserve.destination = '';
+
+			$scope.reservations.push(data);
+		});
+	}
+}

@@ -3,18 +3,20 @@
 
 var app;
 
-app = angular.module("angRails", ['ngRoute',"ngResource"]);
+
+
+app = angular.module("angRails", ['ngRoute',"ngResource",'airlineFilters',"airlineServices"]);
 
 app.config( function($routeProvider,$httpProvider) {
   // allow json
   $httpProvider.defaults.headers['common']['Accept'] = 'application/json';
   //config routs
   $routeProvider
-    .when('/',
-    {
-      template:'hello',
-      controller: 'AppCtrl'
-    })
+    // .when('/',
+    // {
+    //   template:'hello',
+    //   controller: 'AppCtrl'
+    // })
     .when('/sub',{
       redirectTo: function (routeParams, path, search){
         console.log(routeParams);
@@ -22,6 +24,20 @@ app.config( function($routeProvider,$httpProvider) {
         console.log(search);
         return '/'
       }
+    })
+    .when('/', {
+      templateUrl: 'partials/destinations.html',
+      controller: 'DestinationsCtrl'})
+    .when('/airports/:airportCode', {
+      templateUrl: 'partials/airport.html',
+      controller: 'AirportCtrl'
+    })
+    .when('/flights', {
+      templateUrl: 'partials/flights.html',
+      controller: 'FlightsCtrl'})
+    .when('/reservations', {
+      templateUrl: 'partials/reservations.html',
+      controller: 'ReservationsCtrl'
     })
     .otherwise({
       redirectTo:'/'
@@ -31,20 +47,16 @@ app.config( function($routeProvider,$httpProvider) {
 
 app.controller('AppCtrl',function($scope){
   console.log('+ ' + $scope);
+  $scope.setActive = function (type) {
+    $scope.destinationsActive = '';
+    $scope.flightsActive = '';
+    $scope.reservationsActive = '';
+
+    $scope[type + 'Active'] = 'active';
+  }
 })
 
-app.factory("Entry", function($resource) {
-  return $resource("/entries/:id", {
-    id: "@id"
-  }, {
-    update: {
-      method: "PUT"
-    },
-    remove:{
-      method: "DELETE"
-    }
-  });
-});
+
 
 
 
@@ -52,6 +64,7 @@ app.factory("Entry", function($resource) {
 this.AngRailsCtrl = function($scope, Entry) {
 
   $scope.entries = Entry.query();
+
 
   $scope.addEntry = function() {
     var entry;

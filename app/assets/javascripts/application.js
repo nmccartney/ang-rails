@@ -14,4 +14,11 @@
 //= require angular
 //= require angular-resource
 //= require angular-route
-//= require_tree .
+//= require services
+//= require ang_rails
+
+//= require filters
+//= require controllers/flights
+//= require controllers/destinations
+//= require controllers/airports
+//= require controllers/reservations
