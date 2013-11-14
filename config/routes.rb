@@ -1,4 +1,7 @@
 AngRails::Application.routes.draw do
+  resources :airport_joins
+
+
   resources :reservations
 
 

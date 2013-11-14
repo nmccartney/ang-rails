@@ -8,7 +8,8 @@ class AirportsController < ApplicationController
   def show
     @ap = Airport.find(params[:id])
     @ap[:destinations] = []
-    @dest = ['ATL','LAX','DWG']
+    # @dest = ['ATL','LAX','DWG']
+    @dest = @ap.destinations
     @ap[:destinations] << @dest
     respond_with @ap
   end
