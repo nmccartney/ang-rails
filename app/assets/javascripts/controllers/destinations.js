@@ -8,5 +8,15 @@ function DestinationsCtrl ($scope, Airport) {
 		$scope.currentAirport = Airport.get({id: code});
 	};
 
+	$scope.addAirport = function(){
+		console.log('adding airport - ' + $scope)
+		var airport;
+		airport = Airport.save($scope.newAirport);
+		$scope.airports.push(airport);
+		return $scope.newAirport = {};
+
+	};
+
 	$scope.airports = Airport.query();
+
 }

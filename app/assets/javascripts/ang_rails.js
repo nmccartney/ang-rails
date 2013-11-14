@@ -57,7 +57,13 @@ app.controller('AppCtrl',function($scope){
 })
 
 
-
+app.directive('location',function(){
+    return {
+      link: function(scope,element,attrs){
+        scope.getAirport(attrs.location);
+      }
+    }
+})
 
 
 
