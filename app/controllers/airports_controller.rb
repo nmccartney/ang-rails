@@ -6,7 +6,11 @@ class AirportsController < ApplicationController
   end
 
   def show
-    respond_with Airport.find(params[:id])
+    @ap = Airport.find(params[:id])
+    @ap[:destinations] = []
+    @dest = ['ATL','LAX','DWG']
+    @ap[:destinations] << @dest
+    respond_with @ap
   end
 
   def create
