@@ -1,4 +1,13 @@
 AngRails::Application.routes.draw do
+  resources :reservations
+
+
+  resources :airports
+
+
+  resources :flights
+
+
   resources :entries
 
   root to: 'ang-rails#index'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number: 
+  origin: MyString
+  destination: MyString
+  price: 
+
+two:
+  number: 
+  origin: MyString
+  destination: MyString
+  price: 

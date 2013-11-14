@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: MyString
+  origin: MyString
+  destination: MyString
+  day: MyString
+  time: MyString
+
+two:
+  user: MyString
+  origin: MyString
+  destination: MyString
+  day: MyString
+  time: MyString

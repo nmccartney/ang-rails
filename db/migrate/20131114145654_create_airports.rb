@@ -1,0 +1,12 @@
+class CreateAirports < ActiveRecord::Migration
+  def change
+    create_table :airports do |t|
+      t.string :code
+      t.string :name
+      t.string :city
+      t.string :destinations
+
+      t.timestamps
+    end
+  end
+end
