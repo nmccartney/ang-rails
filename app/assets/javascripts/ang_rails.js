@@ -28,7 +28,7 @@ app.config( function($routeProvider,$httpProvider) {
     .when('/', {
       templateUrl: 'partials/destinations.html',
       controller: 'DestinationsCtrl'})
-    .when('/airports/:airportCode', {
+    .when('/airports/:id', {
       templateUrl: 'partials/airport.html',
       controller: 'AirportCtrl'
     })

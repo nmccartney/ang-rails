@@ -1,12 +1,16 @@
 <div ng-show="currentAirport">
-  <h3>{{currentAirport.name}}</h3>
+  <h3>{{currentAirport.name}} @ {{currentAirport.city}}</h3>
 
   <h4>Destinations</h4>
 
   <ul>
     <li ng-repeat="destination in currentAirport.destinations">
       <!-- ng-href="#/airports/{{destination.id}}" -->
-      <a href="" ng-click="setAirport(destination.id)">{{destination.code}} - {{destination.city}}</a>
+      <a ng-href="#/airports/{{destination.id}}">{{destination.code}} - {{destination.city}}</a>
     </li>
   </ul>
+
+  <p>Add new destination *coming soon*</p>
+  <button ng-click="addDestination()">Add</button>
+
 </div>
