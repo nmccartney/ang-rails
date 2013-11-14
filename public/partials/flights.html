@@ -1,4 +1,23 @@
-<h3>Search for flights</h3>
+<h3>Add Flight</h3>
+
+<div>
+  <form ng-submit="addFlight()">
+    <label>Number</label>
+    <input type="text" ng-model="newFlight.number">
+    <label>Origin</label>
+    <!-- TODO id like to only pick from the airports list -->
+    <input type="text" ng-model="newFlight.origin">
+    <label>Destination</label>
+    <!-- TODO id like to only pick from the airports list -->
+    <!-- TODO more importantly - get just destinations with the origin's airports destinations -->
+    <input type="text" ng-model="newFlight.destination">
+    <label>Price</label>
+    <input type="text" ng-model="newFlight.price">
+    <input type="submit" value="Add" class='btn'>
+  </form>
+</div>
+
+<h3>Search for Flights</h3>
 
 <div class="controls controls-row">
   <input type="text" class="input-small" placeholder="Origin" ng-model="search.origin" />
@@ -32,6 +51,9 @@
         </a>
       </td>
       <td>{{flight.price | currency}}</td>
+      <td>
+        <div class='btn' ng-click="removeFlight(flight)">Delete</div>
+      </td>
     </tr>
   </tbody>
 </table>
