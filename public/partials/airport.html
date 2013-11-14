@@ -5,7 +5,8 @@
 
   <ul>
     <li ng-repeat="destination in currentAirport.destinations">
-      <a ng-href="#/airports/{{destination.id}}">{{destination.code}}</a>
+      <!-- ng-href="#/airports/{{destination.id}}" -->
+      <a href="" ng-click="setAirport(destination.id)">{{destination.code}} - {{destination.city}}</a>
     </li>
   </ul>
 </div>
