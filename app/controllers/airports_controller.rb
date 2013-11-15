@@ -10,6 +10,13 @@ class AirportsController < ApplicationController
     @ap[:destinations] = []
     # @dest = ['ATL','LAX','DWG']
     @dest = @ap.destinations
+
+    @dest.each_with_index do |d,i|
+      all  = AirportJoin.where({airport_id:@ap.id,destination_id:d.id})
+      id = all.where({destination_id: 5})
+      d[:assoc_id] = id
+    end
+
     @ap[:destinations] << @dest
     respond_with @ap
   end

@@ -6,7 +6,7 @@
   <ul>
     <li ng-repeat="destination in currentAirport.destinations">
       <!-- ng-href="#/airports/{{destination.id}}" -->
-      <div class='btn'>Delete</div>
+      <div class='btn' ng-click="removeDestination(destination,$index)">Delete {{$index}}</div>
        | 
       <a ng-href="#/airports/{{destination.id}}">{{destination.code}} - {{destination.city}}</a>
 

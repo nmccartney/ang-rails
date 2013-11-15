@@ -15,6 +15,7 @@
 //= require angular-resource
 //= require angular-animate
 //= require angular-route
+//= require lib/underscore
 //= require services
 //= require ang_rails
 
