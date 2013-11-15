@@ -18,8 +18,8 @@ Flight.create!(number: '112', origin: "ATL", destination: "DFW", price: "232")
 Flight.create!(number: '123', origin: "LAX", destination: "ORD", price: "114")
 Flight.create!(number: '163', origin: "DFW", destination: "LAX", price: "223")
 
-Reservation.create!(origin:":LAX",destination:"ORD")
-Reservation.create!(origin:":ATL",destination:"DFW")
+Reservation.create!(origin:"LAX",destination:"ORD")
+Reservation.create!(origin:"ATL",destination:"DFW")
 
 AirportJoin.create!(airport_id: 1, destination_id: 2)
 AirportJoin.create!(airport_id: 1, destination_id: 3)
