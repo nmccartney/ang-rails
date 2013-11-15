@@ -1,11 +1,11 @@
 
-
-
-var app;
-
-
-
-app = angular.module("angRails", ['ngRoute',"ngResource",'airlineFilters',"airlineServices"]);
+var app = angular.module("angRails", 
+  [
+    'ngRoute',
+    "ngResource",
+    'airlineFilters',
+    "airlineServices"
+  ]);
 
 app.config( function($routeProvider,$httpProvider) {
   // allow json
@@ -65,47 +65,3 @@ app.directive('location',function(){
     }
 })
 
-
-
-this.AngRailsCtrl = function($scope, Entry) {
-
-  $scope.entries = Entry.query();
-
-
-  $scope.addEntry = function() {
-    var entry;
-    entry = Entry.save($scope.newEntry);
-    $scope.entries.push(entry);
-    return $scope.newEntry = {};
-  };
-
-  $scope.deleteEntry = function(e){
-    // get index of current list
-    var index = $scope.entries.indexOf(e);
-    // remove from dom
-    $scope.entries.splice(index,1);
-    //remove from DB
-    e.$remove();
-  }
-
-  $scope.drawWinner = function() {
-
-    var entry, pool;
-    pool = [];
-
-    angular.forEach($scope.entries, function(entry) {
-      if (!entry.winner) {
-        return pool.push(entry);
-      }
-    });
-
-    if (pool.length > 0) {
-      entry = pool[Math.floor(Math.random() * pool.length)];
-      entry.winner = true;
-      entry.$update();
-      return $scope.lastWinner = entry;
-    }
-
-  };
-
-};

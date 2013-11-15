@@ -1,6 +1,4 @@
-Entry.create!(name: 'nate')
-Entry.create!(name: 'chelsey')
-Entry.create!(name: 'Matz')
+
 
 
 Airport.create!(code: "ATL", name:"Hartsfield Jackson Atlanta International Airport", city: "Atlanta")

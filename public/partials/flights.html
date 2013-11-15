@@ -1,59 +1,46 @@
-<h3>Add Flight</h3>
 
-<div>
-  <form ng-submit="addFlight()">
-    <label>Number</label>
-    <input type="text" ng-model="newFlight.number">
-    <label>Origin</label>
-    <!-- TODO id like to only pick from the airports list -->
-    <input type="text" ng-model="newFlight.origin">
-    <label>Destination</label>
-    <!-- TODO id like to only pick from the airports list -->
-    <!-- TODO more importantly - get just destinations with the origin's airports destinations -->
-    <input type="text" ng-model="newFlight.destination">
-    <label>Price</label>
-    <input type="text" ng-model="newFlight.price">
-    <input type="submit" value="Add" class='btn'>
-  </form>
+<div class="pull-left span6">
+
+  <h3>Search for Flights</h3>
+
+  <div class="controls controls-row">
+    <input type="text" class="input-small" placeholder="Origin" ng-model="search.origin" />
+    <input type="text" class="input-small" placeholder="Destination" ng-model="search.destination" />
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="flight in flights | filter:search">
+        <td>{{flight.number}}</td>
+        <td>
+          <a ng-href="#/airports/{{flight.origin}}">
+            {{flight | originTitle}}
+            <!-- this needs to recieve the originTitle -->
+          </a>
+        </td>
+        <td>
+          <a ng-href="#/airports/{{flight.destination}}">
+            {{flight | destinationTitle}}
+
+            <!-- <span location="{{flight.destination}}"></span> -->
+            <!-- this needs to recieve the destinationTitle -->
+          </a>
+        </td>
+        <td>{{flight.price | currency}}</td>
+        <td>
+          <div class='btn' ng-click="removeFlight(flight)">Delete</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<h3>Search for Flights</h3>
-
-<div class="controls controls-row">
-  <input type="text" class="input-small" placeholder="Origin" ng-model="search.origin" />
-  <input type="text" class="input-small" placeholder="Destination" ng-model="search.destination" />
-</div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Number</th>
-      <th>Origin</th>
-      <th>Destination</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="flight in flights | filter:search">
-      <td>{{flight.number}}</td>
-      <td>
-        <a ng-href="#/airports/{{flight.origin}}">
-          {{flight | originTitle}}
-          <!-- this needs to recieve the originTitle -->
-        </a>
-      </td>
-      <td>
-        <a ng-href="#/airports/{{flight.destination}}">
-          {{flight | destinationTitle}}
-
-          <!-- <span location="{{flight.destination}}"></span> -->
-          <!-- this needs to recieve the destinationTitle -->
-        </a>
-      </td>
-      <td>{{flight.price | currency}}</td>
-      <td>
-        <div class='btn' ng-click="removeFlight(flight)">Delete</div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="span5"  ng-include src="sidebarURL()"></div>

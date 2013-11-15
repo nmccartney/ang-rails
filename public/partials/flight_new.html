@@ -1,0 +1,17 @@
+<div ng-controller="NewFlightCtrl">
+    <h3>Add Flight</h3>
+    <form ng-submit="addFlight()">
+        <label>Number</label>
+        <input type="text" ng-model="newFlight.number">
+        <label>Origin</label>
+        <!-- TODO id like to only pick from the airports list -->
+        <input type="text" ng-model="newFlight.origin">
+        <label>Destination</label>
+        <!-- TODO id like to only pick from the airports list -->
+        <!-- TODO more importantly - get just destinations with the origin's airports destinations -->
+        <input type="text" ng-model="newFlight.destination">
+        <label>Price</label>
+        <input type="text" ng-model="newFlight.price">
+        <input type="submit" value="Add" class='btn'>
+    </form>
+</div>
