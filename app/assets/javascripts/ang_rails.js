@@ -3,9 +3,17 @@ var app = angular.module("angRails",
   [
     'ngRoute',
     "ngResource",
+    "ngAnimate",
     'airlineFilters',
     "airlineServices"
   ]);
+
+app.animation(".toggle",function(){
+  console.log('toggle');
+  return {
+    
+  }
+})
 
 app.config( function($routeProvider,$httpProvider) {
   // allow json
@@ -47,6 +55,7 @@ app.config( function($routeProvider,$httpProvider) {
 
 app.controller('AppCtrl',function($scope){
   console.log('+ ' + $scope);
+  $scope.toggle = false;
   $scope.setActive = function (type) {
     $scope.destinationsActive = '';
     $scope.flightsActive = '';
@@ -64,4 +73,6 @@ app.directive('location',function(){
       }
     }
 })
+
+
 

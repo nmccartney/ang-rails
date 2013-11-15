@@ -4,8 +4,8 @@ function FlightsCtrl ($scope, Flights, Airport) {
 	$scope.flights = Flights.query();
 	$scope.airports = Airport.query();
 
-	$scope.sidebarURL = function(){
-		return 'partials/flight_new.html';
+	$scope.sidebarURL = function(link){
+		return 'partials/'+link+'.html';
 	};
 
 
@@ -15,7 +15,6 @@ function FlightsCtrl ($scope, Flights, Airport) {
 		return "atl"
 	}
 
-
 	$scope.removeFlight = function(flight){
 		// get index of current list
 	    var index = $scope.flights.indexOf(flight);
@@ -24,10 +23,16 @@ function FlightsCtrl ($scope, Flights, Airport) {
 	    //remove from DB
 	    flight.$remove();
 	};
+
+	app.toggle = false;
+	$scope.displayAddNew = function (){
+		console.log(app.toggle);
+		app.toggle=!app.toggle
+	};
+
 }
 
 this.NewFlightCtrl = function ($scope, Flights, Airport){
-	console.log('flight!');
 	$scope.addFlight = function(){
 		console.log('adding flight - ' + $scope.newFlight)
 		var flight;
