@@ -8,12 +8,7 @@ var app = angular.module("angRails",
     "airlineServices"
   ]);
 
-app.animation(".toggle",function(){
-  console.log('toggle');
-  return {
-    
-  }
-})
+
 
 app.config( function($routeProvider,$httpProvider) {
   // allow json

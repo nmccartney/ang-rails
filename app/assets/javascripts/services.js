@@ -48,6 +48,18 @@ angular.module('airlineServices', ['ngResource'])
 	    }
 	  });
 	})
+  .factory("Destinations", function($resource) {
+	  return $resource("/airport_joins/:id", {
+	    id: "@id"
+	  }, {
+	    update: {
+	      method: "PUT"
+	    },
+	    remove:{
+	      method: "DELETE"
+	    }
+	  });
+	})
 
 
 

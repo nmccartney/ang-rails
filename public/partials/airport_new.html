@@ -1,0 +1,10 @@
+<div  ng-show="currentAirport" ng-controller="NewDestinationCtrl">
+    <h3>Add Destination</h3>
+    <form ng-submit="addDestination()">
+        <label>Add Destination</label>
+        <!-- TODO id like to only pick from the airports list -->
+        <select ng-model="newDestination.id" ng-options="t.id as t.code for t in airports">
+        </select>
+        <input type="submit" value="Add" class='btn'>
+    </form>
+</div>
