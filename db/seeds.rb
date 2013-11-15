@@ -8,6 +8,12 @@ Airport.create!(code: "ORD", name:"O'Hare International Airport", city: "Chicago
 Airport.create!(code: "LAX", name:"Los Angeles International Airport", city: "Los Angeles")
 Airport.create!(code: "DFW", name:"Dallas/Fort Worth International Airport", city: "Dallas")
 
+Airport.create!(code: "DEN", name:"Denver International Airport", city: "Denver")
+Airport.create!(code: "JFK", name:"John F. Kennedy International Airport", city: "New York")
+Airport.create!(code: "SFO", name:"San Francisco International Airport", city: "San Francisco")
+Airport.create!(code: "LAS", name:"McCarran International Airport", city: "Las Vegas")
+Airport.create!(code: "PIT", name:"Pittsburgh International Airport", city: "Pittsburgh")
+
 Flight.create!(number: '112', origin: "ATL", destination: "DFW", price: "232")
 Flight.create!(number: '123', origin: "LAX", destination: "ORD", price: "114")
 Flight.create!(number: '163', origin: "DFW", destination: "LAX", price: "223")
